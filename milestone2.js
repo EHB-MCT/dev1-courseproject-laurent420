@@ -1,6 +1,6 @@
 "use strict";
 
-// Functie om willekeurige vormen te tekenen op de canvas van img1
+// Functie om willekeurige vormen te tekenen op de canvas van img1, alleen in het midden
 function drawRandomShapes(canvasId, imageId) {
   const canvas = document.getElementById(canvasId);
   const image = document.getElementById(imageId);
@@ -13,12 +13,19 @@ function drawRandomShapes(canvasId, imageId) {
 
     const ctx = canvas.getContext("2d");
 
-    // Teken willekeurige vormen
+    // Definieer de marges voor het middengebied van de T-shirt (bijv. 50% van de breedte en hoogte)
+    const marginX = canvas.width * 0.25; // 25% van de breedte aan beide zijden
+    const marginY = canvas.height * 0.25; // 25% van de hoogte aan boven- en onderkant
+
+    // Teken willekeurige vormen, maar alleen binnen het middengebied
     for (let i = 0; i < 10; i++) {
       // Teken 10 willekeurige vormen
       const shapeType = Math.random() > 0.5 ? "circle" : "square"; // Willekeurig kiezen tussen cirkel of vierkant
-      const x = Math.random() * canvas.width; // Willekeurige x-positie
-      const y = Math.random() * canvas.height; // Willekeurige y-positie
+
+      // Willekeurige x en y binnen het middengebied
+      const x = Math.random() * (canvas.width - 2 * marginX) + marginX; // Willekeurige x-positie binnen het midden
+      const y = Math.random() * (canvas.height - 2 * marginY) + marginY; // Willekeurige y-positie binnen het midden
+
       const size = Math.random() * 50 + 10; // Willekeurige grootte tussen 10 en 60
 
       ctx.fillStyle = `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${
