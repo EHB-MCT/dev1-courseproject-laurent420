@@ -74,3 +74,4 @@ function drawRandomShapes(canvasId, imageId) {
 window.onload = () => {
   drawRandomShapes("canvas1", "img1"); // Canvas voor img1
 };
+//gebruik gemaakt, ai, vorige oefeningen, forums.
