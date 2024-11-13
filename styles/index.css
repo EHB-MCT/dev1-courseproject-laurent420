@@ -1,13 +1,19 @@
 body {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f0f0f0;
+}
+.shirt-container {
+    position: relative;
+    display: inline-block;
 }
 
-#canvas {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
+canvas {
     position: absolute;
     top: 0;
     left: 0;
+    pointer-events: none;
+    /* Zorgt ervoor dat de canvas geen invloed heeft op de afbeelding */
 }
